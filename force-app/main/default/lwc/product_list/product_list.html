@@ -1,4 +1,45 @@
 <template>
-   Thanks bhaiya 
-   <b>Hello</b>
+ 
+
+   <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+      <thead>
+         <tr class="slds-line-height_reset">
+            <th class="" scope="col">
+               <div class="slds-truncate" title="Opportunity Name">Product Name</div>
+            </th>
+            <th class="" scope="col">
+               <div class="slds-truncate" title="Account Name">Product Description</div>
+            </th>
+            <th class="" scope="col">
+               <div class="slds-truncate" title="Close Date">Product Price</div>
+            </th>
+            <th class="" scope="col">
+               <div class="slds-truncate" title="Stage">Is Active </div>
+            </th> 
+         </tr>
+      </thead>
+      <tbody>
+         <template for:each={products.data} for:item="prod"> 
+            <tr key={prod.Id} class="slds-hint-parent">
+               <th data-label="Product Name" scope="row">
+                  <div class="slds-truncate" title={prod.Name}>
+                     <a href="#" tabindex="-1"> {prod.Name} </a>
+                  </div>
+               </th>
+               <td data-label="Product description">
+                  <div class="slds-truncate" title={prod.Description__c} > {prod.Description__c} </div>
+               </td>
+               <td data-label="Product Price">
+                  <div class="slds-truncate" title={prod.Price__c}> {prod.Price__c} </div>
+               </td>
+               <td data-label="Is Product Active">
+                  <input type="checkbox" checked={prod.Active__c}  />
+               </td>
+               
+            </tr> 
+         </template>
+ 
+      </tbody>
+   </table>
+
 </template>
